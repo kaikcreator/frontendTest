@@ -6,4 +6,16 @@
   campaigns-list works!
 </p>
 
-<button routerLink="detail/101" mat-raised-button color="primary"> Go to campaign detail </button>
+<div *ngFor="let item of campaigns">
+  <h3>{{item.name}}</h3>
+  <p>{{item.status}}</p>
+  <p>{{item.goal}}</p>
+  <div>
+    <div>Platforms:</div>
+    <mat-chip-list>
+      <mat-chip *ngFor="let platform of item.platforms | keyvalue">{{platform.key}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <button routerLink="detail/{{item._id}}" mat-raised-button color="primary"> Go to campaign detail </button>
+</div>
