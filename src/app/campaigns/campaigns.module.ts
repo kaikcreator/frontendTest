@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule } from '@angular/material';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule } from '@angular/material';
 
 import { CampaignsListComponent } from './campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
@@ -17,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     MatToolbarModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCardModule,
+    MatDividerModule
   ],
   declarations: [CampaignsListComponent, CampaignDetailComponent]
 })

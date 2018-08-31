@@ -2,20 +2,30 @@
   <span>Campaigns</span>
 </mat-toolbar>
 
-<p>
-  campaigns-list works!
-</p>
+<div class="campaigns-container">
+    <mat-card *ngFor="let item of campaigns" class="campaign-card">
 
-<div *ngFor="let item of campaigns">
-  <h3>{{item.name}}</h3>
-  <p>{{item.status}}</p>
-  <p>{{item.goal}}</p>
-  <div>
-    <div>Platforms:</div>
-    <mat-chip-list>
-      <mat-chip *ngFor="let platform of item.platforms | keyvalue">{{platform.key}}</mat-chip>
-    </mat-chip-list>
-  </div>
-
-  <button routerLink="detail/{{item._id}}" mat-raised-button color="primary"> Go to campaign detail </button>
+        <mat-card-header class="campaign-card-header">
+          <mat-card-title class="campaign-card-title">{{ item.name }} </mat-card-title>
+          <mat-chip class="campaign-card-status" disabled selected [ngClass]="statusColor(item.status)">
+            {{ item.status }}
+          </mat-chip>
+        </mat-card-header>
+      
+        <mat-card-content>
+            <p class="campaign-card-goal"> <span>GOAL: </span> {{item.goal}}</p>
+            <div class="campaign-card-platforms">
+              <div>Platforms:</div>
+              <mat-chip-list>
+                <mat-chip disabled *ngFor="let platform of item.platforms | keyvalue">{{platform.key}}</mat-chip>
+              </mat-chip-list>
+            </div>
+        </mat-card-content>
+      
+        <mat-card-actions class="campaign-card-footer">
+            <span>Budget: {{ item.totalBudget }}</span>
+            <button class="campaign-card-cta" routerLink="detail/{{item._id}}" mat-button> Go to detail > </button>  
+        </mat-card-actions>
+      
+      </mat-card>
 </div>
