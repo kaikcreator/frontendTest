@@ -14,7 +14,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'campaigns/detail/:id',
+    path: 'campaigns/:id',
     component: CampaignDetailComponent,
   },  
   { path: '',

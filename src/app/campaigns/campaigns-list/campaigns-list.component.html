@@ -2,7 +2,7 @@
   <span>Campaigns</span>
 </mat-toolbar>
 
-<div class="campaigns-container" *ngIf="campaigns.length">
+<div class="campaigns-container" *ngIf="campaigns?.length">
     <mat-card *ngFor="let item of campaigns" class="campaign-card">
 
         <mat-card-header class="campaign-card-header">
@@ -24,12 +24,12 @@
       
         <mat-card-actions class="campaign-card-footer">
             <span>Budget: {{ item.totalBudget }}</span>
-            <button class="campaign-card-cta" routerLink="detail/{{item._id}}" mat-button> Go to detail > </button>  
+            <button class="campaign-card-cta" routerLink="{{item._id}}" mat-button> Go to detail > </button>  
         </mat-card-actions>
       
       </mat-card>
 </div>
 
-<div class="campaigns-empty">
+<div class="campaigns-empty" *ngIf="! campaigns?.length">
   <p color="warn">No available campaigns at this moment</p>
 </div>

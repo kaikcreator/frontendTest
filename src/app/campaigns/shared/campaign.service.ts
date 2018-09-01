@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Campaign } from './campaign';
 
@@ -11,7 +11,8 @@ import { Campaign } from './campaign';
 })
 export class CampaignService {
 
-  private campaignsUrl = 'http://localhost:9000/campaigns'; 
+  private campaignsUrl = 'http://localhost:9000/campaigns';
+  public campaigns: Campaign[]; 
 
   constructor(private http:HttpClient) { }
 
@@ -25,8 +26,37 @@ export class CampaignService {
       map( items => items.map(item => {
         return new Campaign(item);
       }) ),
+      tap( campaigns => this.campaigns = campaigns),
       catchError(this.handleError('getCampaigns', []))
     );
+  }
+
+  /**
+   * GET specific campaign from the server.
+   * Return an observable with the requested campaign
+   */  
+  getCampaignById (id) {
+    return this.http.get<Campaign>(`${this.campaignsUrl}/${id}`)
+    .pipe(
+      map( item => { return new Campaign(item); } ),
+      catchError(this.handleError('getCampaign', null))
+    );
+  }  
+
+  /**
+   * Find a specific campaign
+   * Return an observable with the expected campaign. The campaign is searched locally, 
+   * but in case there are no campaigns in memory, the specific campaign is requested to the
+   * server
+   */  
+  findCampaignById(id):Observable<Campaign>{
+    if(this.campaigns){
+      let campaign = this.campaigns.find( campaign => campaign._id === id);
+      return of(campaign);
+    }
+    else{
+      return this.getCampaignById(id);
+    }
   }
 
   /**
