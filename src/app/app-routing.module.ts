@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CampaignsListComponent } from './campaigns/campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
-//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CampaignInfoComponent } from './campaigns/campaign-info/campaign-info.component';
+import { CampaignPlatformComponent } from './campaigns/campaign-platform/campaign-platform.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'campaigns/:id',
     component: CampaignDetailComponent,
+    children:[
+      {path: '', redirectTo:'overview', pathMatch:'full'},
+      {path: 'overview', component:CampaignInfoComponent},
+      {path: ':platform', component:CampaignPlatformComponent},
+    ]
   },  
   { path: '',
     redirectTo: '/campaigns',

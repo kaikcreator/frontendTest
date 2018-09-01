@@ -1,13 +1,18 @@
 <mat-toolbar color="primary">
-  <span routerLink="/campaigns">Campaigns</span> &nbsp;>&nbsp; <span>{{ campaign?.name }}</span>
+  <span class="toolbar-link" routerLink="/campaigns">Campaigns</span> &nbsp;>&nbsp; <span>{{ campaign?.name }}</span>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav opened mode="side">
-    General
+<mat-sidenav-container class="campaign-sidenav">
+  <mat-sidenav class="campaign-sidenav-side" opened mode="side">
+    <mat-list>
+      <mat-list-item routerLink="overview">General</mat-list-item>
+      <mat-list-item routerLink="{{platform.key}}" *ngFor="let platform of campaign?.platforms | keyvalue">
+        {{platform.key}}
+      </mat-list-item>
+    </mat-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    Campaign content
+  <mat-sidenav-content class="campaign-sidenav-content">
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

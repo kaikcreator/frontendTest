@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatSidenavModule, MatListModule } from '@angular/material';
 
 import { CampaignsListComponent } from './campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CampaignInfoComponent } from './campaign-info/campaign-info.component';
+import { CampaignPlatformComponent } from './campaign-platform/campaign-platform.component';
 
 
 
@@ -19,8 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatChipsModule,
     MatCardModule,
     MatDividerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
-  declarations: [CampaignsListComponent, CampaignDetailComponent]
+  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent]
 })
 export class CampaignsModule { }
