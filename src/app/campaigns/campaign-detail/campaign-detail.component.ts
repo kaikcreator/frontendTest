@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../shared/campaign.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Campaign } from '../shared/campaign';
 
@@ -13,7 +13,7 @@ export class CampaignDetailComponent implements OnInit {
 
   campaign: Campaign = null;
   
-  constructor(private campaignService: CampaignService, private route:ActivatedRoute) { }
+  constructor(private campaignService: CampaignService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -24,6 +24,9 @@ export class CampaignDetailComponent implements OnInit {
       })
     )
     .subscribe(campaign => {
+      if(!campaign){
+        this.router.navigate(['/404']);
+      }
       this.campaign = campaign;
     })
   }

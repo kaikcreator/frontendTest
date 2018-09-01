@@ -2,6 +2,12 @@
   <span routerLink="/campaigns">Campaigns</span> &nbsp;>&nbsp; <span>{{ campaign?.name }}</span>
 </mat-toolbar>
 
-<p>
-  campaign-detail works!
-</p>
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side">
+    General
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    Campaign content
+  </mat-sidenav-content>
+</mat-sidenav-container>

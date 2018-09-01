@@ -21,12 +21,15 @@ const routes: Routes = [
     redirectTo: '/campaigns',
     pathMatch: 'full'
   },
-  { path: '**', 
+  { path: '404', 
     loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule',
     data: {
       title: '404 - Not found!'
     } 
-  },  
+  },
+  { path: '**', 
+    redirectTo: '404'
+  }
 ];
 
 @NgModule({
