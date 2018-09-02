@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatSidenavModule, MatListModule, MatProgressBarModule } from '@angular/material';
 
 import { CampaignsListComponent } from './campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
@@ -22,7 +22,8 @@ import { CampaignPlatformComponent } from './campaign-platform/campaign-platform
     MatCardModule,
     MatDividerModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatProgressBarModule
   ],
   declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent]
 })

@@ -1,0 +1,27 @@
+.campaign-card{
+    flex-grow: 1;
+    min-width: 280px;
+    margin: 20px;
+
+    &-header{
+        margin-bottom: 40px;
+    }
+
+    &-status{
+        position: absolute;
+        right: 20px;
+    }
+
+    &-title{
+        font-size: 24px;
+    }
+
+    &-goal{
+        font-size: 18px;
+        margin-bottom: 24px !important;
+        span{
+            font-weight: 600;
+        }
+    }
+
+}

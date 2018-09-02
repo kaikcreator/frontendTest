@@ -1,3 +1,24 @@
-<p>
-  campaign-info works!
-</p>
+<h1>Campaign Overview</h1>
+
+<mat-card class="campaign-card">
+  <ng-container *ngIf="campaign">
+    <mat-card-header class="campaign-card-header">
+      <mat-card-title class="campaign-card-title"><span>Budget: {{ campaign.totalBudget }} €</span> </mat-card-title>
+      <mat-chip class="campaign-card-status" disabled selected [ngClass]="statusColor(campaign.status)">
+        {{ campaign.status }}
+      </mat-chip>
+    </mat-card-header>
+  
+    <mat-card-content>
+        <p class="campaign-card-goal"> <span>GOAL: </span> {{campaign.goal}}</p>
+        <div class="campaign-card-platforms">
+          <div>Platforms:</div>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let platform of campaign.platforms | keyvalue">{{platform.key}}</mat-chip>
+          </mat-chip-list>
+        </div>
+    </mat-card-content>
+  
+  </ng-container>    
+  
+  </mat-card>
