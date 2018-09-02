@@ -20,7 +20,7 @@ export class Campaign {
     }
 }
 
-class Platform {
+export class Platform {
     status: String;
     totalBudget: Number;
     remainingBudget: Number;
@@ -43,7 +43,7 @@ class Platform {
     }
 };
 
-class TargetAudiance{
+export class TargetAudiance{
     languages: String[];
     genders: String[];
     age: {

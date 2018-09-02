@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatSidenavModule, MatListModule, MatProgressBarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatGridListModule, MatSidenavModule, MatListModule, MatProgressBarModule } from '@angular/material';
 
 import { CampaignsListComponent } from './campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CampaignInfoComponent } from './campaign-info/campaign-info.component';
 import { CampaignPlatformComponent } from './campaign-platform/campaign-platform.component';
+import { TargetAudienceComponent } from './components/target-audience/target-audience.component';
 
 
 
@@ -23,8 +24,9 @@ import { CampaignPlatformComponent } from './campaign-platform/campaign-platform
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatGridListModule
   ],
-  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent]
+  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent, TargetAudienceComponent]
 })
 export class CampaignsModule { }

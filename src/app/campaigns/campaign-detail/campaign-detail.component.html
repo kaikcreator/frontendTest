@@ -1,18 +1,20 @@
-<mat-toolbar color="primary">
-  <span class="toolbar-link" routerLink="/campaigns">Campaigns</span> &nbsp;>&nbsp; <span>{{ campaign?.name }}</span>
-</mat-toolbar>
-
-<mat-sidenav-container class="campaign-sidenav">
-  <mat-sidenav class="campaign-sidenav-side" opened mode="side">
-    <mat-list>
-      <mat-list-item routerLink="overview" routerLinkActive="active">General</mat-list-item>
-      <mat-list-item *ngFor="let platform of campaign?.platforms | keyvalue" routerLink="{{platform.key}}" routerLinkActive="active">
-        {{platform.key}}
-      </mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="campaign-sidenav-content">
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<ng-container *ngIf="campaign$ | async as campaign">
+  <mat-toolbar color="primary">
+    <span class="toolbar-link" routerLink="/campaigns">Campaigns</span> &nbsp;>&nbsp; <span>{{ campaign.name }}</span>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="campaign-sidenav">
+    <mat-sidenav class="campaign-sidenav-side" opened mode="side">
+      <mat-list>
+        <mat-list-item routerLink="overview" routerLinkActive="active">General</mat-list-item>
+        <mat-list-item *ngFor="let platform of campaign.platforms | keyvalue" routerLink="{{platform.key}}" routerLinkActive="active">
+          {{platform.key}}
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="campaign-sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

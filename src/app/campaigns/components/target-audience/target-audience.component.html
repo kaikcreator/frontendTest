@@ -1,0 +1,53 @@
+<mat-card>  
+  <mat-card-content class="target-audiance-container" *ngIf="targetAudience">
+        <div class="target-audiance-row"> 
+          <span>Languages: </span>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let language of targetAudience.languages">
+              {{language}}
+            </mat-chip>
+          </mat-chip-list>  
+        </div>
+
+        <div class="target-audiance-row"> 
+          <span>Genders: </span>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let gender of targetAudience.genders">
+              {{gender}}
+            </mat-chip>
+          </mat-chip-list>  
+        </div>
+
+        <div class="target-audiance-row">
+          <span>Age range: </span> <span>{{targetAudience.age.min}} - {{targetAudience.age.max}}</span>
+        </div>
+
+        <div class="target-audiance-row"> 
+          <span>Locations: </span>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let location of targetAudience.locations">
+              {{location}}
+            </mat-chip>
+          </mat-chip-list>  
+        </div>          
+
+        <div class="target-audiance-row"> 
+          <span>Interests: </span>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let interest of targetAudience.interests">
+              {{interest}}
+            </mat-chip>
+          </mat-chip-list>  
+        </div> 
+        
+        <div class="target-audiance-row"> 
+          <span>Keywords: </span>
+          <mat-chip-list>
+            <mat-chip disabled *ngFor="let keyword of targetAudience.keywords">
+              {{keyword}}
+            </mat-chip>
+          </mat-chip-list>  
+        </div>           
+
+  </mat-card-content>
+</mat-card> 

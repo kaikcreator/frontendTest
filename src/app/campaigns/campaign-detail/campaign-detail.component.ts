@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../shared/campaign.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Campaign } from '../shared/campaign';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-detail',
@@ -11,24 +12,23 @@ import { Campaign } from '../shared/campaign';
 })
 export class CampaignDetailComponent implements OnInit {
 
-  campaign: Campaign = null;
+  campaign$: Observable<Campaign> = null;
   
   constructor(private campaignService: CampaignService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.pipe(
+    this.campaign$ = this.route.paramMap.pipe(
       switchMap( params => {
         let idParam = params.get('id');
         let id = parseInt(idParam, 10);
         return this.campaignService.findCampaignById(id);
+      }),
+      tap(campaign => {
+        if(!campaign){
+          this.router.navigate(['/404']);
+        }
       })
-    )
-    .subscribe(campaign => {
-      if(!campaign){
-        this.router.navigate(['/404']);
-      }
-      this.campaign = campaign;
-    })
+    );
   }
 
 }

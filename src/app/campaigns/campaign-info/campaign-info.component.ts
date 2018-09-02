@@ -1,31 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { Campaign } from '../shared/campaign';
-import { CampaignService } from '../shared/campaign.service';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
+
 
 @Component({
   selector: 'app-campaign-info',
   templateUrl: './campaign-info.component.html',
   styleUrls: ['./campaign-info.component.scss']
 })
-export class CampaignInfoComponent implements OnInit {
+export class CampaignInfoComponent implements OnInit, OnDestroy {
 
   public campaign:Campaign = null;
+  private campaignSubscription: Subscription;
 
-  constructor(private campaignService: CampaignService, private route:ActivatedRoute) { }
+  constructor(private parent:CampaignDetailComponent) { }
 
   ngOnInit() {
-    this.route.parent.paramMap.pipe(
-      switchMap( params => {
-        let idParam = params.get('id');
-        let id = parseInt(idParam, 10);
-        return this.campaignService.findCampaignById(id);
-      })
-    )
-    .subscribe(campaign => {
-      this.campaign = campaign;
-    })
+    this.campaignSubscription = this.parent.campaign$.subscribe(campaign => this.campaign = campaign);
+  }
+
+  ngOnDestroy(){
+    this.campaignSubscription.unsubscribe();
   }
 
   statusColor(status:string){
