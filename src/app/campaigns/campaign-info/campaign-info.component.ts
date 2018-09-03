@@ -23,16 +23,6 @@ export class CampaignInfoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.campaignSubscription.unsubscribe();
-  }
-
-  statusColor(status:string){
-    let colors = {
-      'mat-primary' : status === 'Delivering',
-      'mat-warn' : status === 'Ended',
-      'mat-disabled' : status === 'Scheduled',
-    };
-
-    return colors;
-  }  
+  } 
 
 }

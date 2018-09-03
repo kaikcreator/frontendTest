@@ -1,0 +1,16 @@
+.platform-overview-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.platform-overview-left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.platform-overview-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

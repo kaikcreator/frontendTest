@@ -1,0 +1,21 @@
+<mat-card>  
+  <mat-card-content class="platform-overview-container" *ngIf="platform">
+        <div class="platform-overview-left">
+          <div class="platform-overview-cell">
+            {{platform.startDate | date:short}} - {{platform.endDate | date:short}}
+          </div>
+          <mat-chip class="platform-overview-cell" [attr.status]="platform.status" disabled selected>
+            {{ platform.status }}
+          </mat-chip>
+        </div>
+
+        <div class="platform-overview-right">
+            <div class="platform-overview-cell">
+                <span>Total budget: </span> <span>{{platform.totalBudget}}</span>
+            </div>
+            <div class="platform-overview-cell">
+                <span>Remaining budget: </span> <span>{{platform.remainingBudget}}</span>
+            </div>
+        </div>                 
+  </mat-card-content>
+</mat-card> 

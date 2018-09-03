@@ -7,7 +7,7 @@
 
         <mat-card-header class="campaign-card-header">
           <mat-card-title class="campaign-card-title">{{ item.name }} </mat-card-title>
-          <mat-chip class="campaign-card-status" disabled selected [ngClass]="statusColor(item.status)">
+          <mat-chip class="campaign-card-status" [attr.status]="item.status" disabled selected>
             {{ item.status }}
           </mat-chip>
         </mat-card-header>

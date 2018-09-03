@@ -39,7 +39,6 @@ export class Platform {
         this.targetAudiance = targetAudiance;
         this.creatives = creatives;
         this.insights = insights;
-
     }
 };
 

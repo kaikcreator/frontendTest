@@ -18,14 +18,4 @@ export class CampaignsListComponent implements OnInit {
     })
   }
 
-  statusColor(status:string){
-    let colors = {
-      'mat-primary' : status === 'Delivering',
-      'mat-warn' : status === 'Ended',
-      'mat-disabled' : status === 'Scheduled',
-    };
-
-    return colors;
-  }
-
 }

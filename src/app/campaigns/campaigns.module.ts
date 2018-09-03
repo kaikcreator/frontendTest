@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CampaignInfoComponent } from './campaign-info/campaign-info.component';
 import { CampaignPlatformComponent } from './campaign-platform/campaign-platform.component';
 import { TargetAudienceComponent } from './components/target-audience/target-audience.component';
+import { PlatformOverviewComponent } from './components/platform-overview/platform-overview.component';
 
 
 
@@ -27,6 +28,6 @@ import { TargetAudienceComponent } from './components/target-audience/target-aud
     MatProgressBarModule,
     MatGridListModule
   ],
-  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent, TargetAudienceComponent]
+  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent]
 })
 export class CampaignsModule { }

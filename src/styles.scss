@@ -2,3 +2,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+/* using material theming to get primary/warn/disabled colors and use them directly*/
+@import '~@angular/material/theming';
+@include mat-core();
+$app-primary: mat-palette($mat-indigo);
+$app-disabled:  mat-palette($mat-grey, A200);
+$app-warn:    mat-palette($mat-red);
+
+mat-chip[status=Delivering]{
+    background-color: mat-color($app-primary) !important;
+}
+mat-chip[status=Ended]{
+    background-color: mat-color($app-warn) !important;
+}
+mat-chip[status=Scheduled]{
+    background-color: mat-color($app-disabled) !important;
+    color: black !important;
+}
