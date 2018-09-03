@@ -7,9 +7,7 @@
 
         <mat-card-header class="campaign-card-header">
           <mat-card-title class="campaign-card-title">{{ item.name }} </mat-card-title>
-          <mat-chip class="campaign-card-status" [attr.status]="item.status" disabled selected>
-            {{ item.status }}
-          </mat-chip>
+          <app-status value="{{item.status}}" class="campaign-card-status"></app-status>
         </mat-card-header>
       
         <mat-card-content>

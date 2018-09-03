@@ -4,9 +4,7 @@
   <ng-container *ngIf="campaign">
     <mat-card-header class="campaign-card-header">
       <mat-card-title class="campaign-card-title"><span>Budget: {{ campaign.totalBudget }} €</span> </mat-card-title>
-      <mat-chip class="campaign-card-status" [attr.status]="campaign.status" disabled selected>
-        {{ campaign.status }}
-      </mat-chip>
+      <app-status value="{{campaign.status}}" class="campaign-card-status"></app-status>
     </mat-card-header>
   
     <mat-card-content>

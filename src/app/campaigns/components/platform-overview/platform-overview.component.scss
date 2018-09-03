@@ -1,16 +1,36 @@
-.platform-overview-container{
-    display: flex;
-    flex-direction: row;
-}
+.platform-overview{
+    max-width: 500px;
 
-.platform-overview-left{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+    &-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100px;
+    }
+    
+    &-left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    
+    &-right{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+    } 
+    
+    &-date{
+        font-size: 18px;
+        font-style: italic;
+    }
 
-.platform-overview-right{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    &-budget{
+        font-size: 16px;
+        &>span:first-child{
+            font-weight: 600;
+        }
+    }
 }

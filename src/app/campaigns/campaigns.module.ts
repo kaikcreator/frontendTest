@@ -10,6 +10,7 @@ import { CampaignInfoComponent } from './campaign-info/campaign-info.component';
 import { CampaignPlatformComponent } from './campaign-platform/campaign-platform.component';
 import { TargetAudienceComponent } from './components/target-audience/target-audience.component';
 import { PlatformOverviewComponent } from './components/platform-overview/platform-overview.component';
+import { StatusComponent } from './components/status/status.component';
 
 
 
@@ -28,6 +29,6 @@ import { PlatformOverviewComponent } from './components/platform-overview/platfo
     MatProgressBarModule,
     MatGridListModule
   ],
-  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent]
+  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignInfoComponent, CampaignPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent]
 })
 export class CampaignsModule { }
