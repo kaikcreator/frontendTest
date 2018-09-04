@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CampaignService } from '../shared/campaign.service';
+import { CampaignService } from '../../services/campaign.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
-import { Campaign } from '../shared/campaign';
+import { Campaign } from '../../models/campaign';
 import { Observable } from 'rxjs';
 
 @Component({

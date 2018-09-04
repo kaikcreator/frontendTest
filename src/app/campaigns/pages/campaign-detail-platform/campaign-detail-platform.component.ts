@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Platform } from '../shared/campaign';
+import { Platform } from '../../models/platform';
 import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-campaign-platform',
-  templateUrl: './campaign-platform.component.html',
-  styleUrls: ['./campaign-platform.component.scss']
+  selector: 'app-campaign-detail-platform',
+  templateUrl: './campaign-detail-platform.component.html',
+  styleUrls: ['./campaign-detail-platform.component.scss']
 })
-export class CampaignPlatformComponent implements OnInit, OnDestroy {
+export class CampaignDetailPlatformComponent implements OnInit, OnDestroy {
 
   platform: Platform;
   campaignSubscription: Subscription;

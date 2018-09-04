@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Campaign } from './campaign';
+import { Campaign } from '../models/campaign';
 
 
 @Injectable({

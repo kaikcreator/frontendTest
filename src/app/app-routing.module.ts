@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CampaignsListComponent } from './campaigns/campaigns-list/campaigns-list.component';
-import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
-import { CampaignInfoComponent } from './campaigns/campaign-info/campaign-info.component';
-import { CampaignPlatformComponent } from './campaigns/campaign-platform/campaign-platform.component';
+import { CampaignsListComponent } from './campaigns/pages/campaigns-list/campaigns-list.component';
+import { CampaignDetailComponent } from './campaigns/pages/campaign-detail/campaign-detail.component';
+import { CampaignDetailOverviewComponent } from './campaigns/pages/campaign-detail-overview/campaign-detail-overview.component';
+import { CampaignDetailPlatformComponent } from './campaigns/pages/campaign-detail-platform/campaign-detail-platform.component';
 
 
 const routes: Routes = [
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: CampaignDetailComponent,
     children:[
       {path: '', redirectTo:'overview', pathMatch:'full'},
-      {path: 'overview', component:CampaignInfoComponent},
-      {path: ':platform', component:CampaignPlatformComponent},
+      {path: 'overview', component:CampaignDetailOverviewComponent},
+      {path: ':platform', component:CampaignDetailPlatformComponent},
     ]
   },  
   { path: '',

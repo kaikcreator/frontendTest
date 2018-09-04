@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TargetAudiance } from '../../shared/campaign';
+import { TargetAudiance } from '../../models/target-audience';
 
 @Component({
   selector: 'app-target-audience',

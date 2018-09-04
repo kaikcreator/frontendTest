@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Platform } from '../../shared/campaign';
+import { Platform } from '../../models/platform';
 
 @Component({
   selector: 'app-platform-overview',

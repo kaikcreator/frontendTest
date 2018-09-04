@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Campaign } from '../shared/campaign';
+import { Campaign } from '../../models/campaign';
 import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.component';
 
 
 @Component({
-  selector: 'app-campaign-info',
-  templateUrl: './campaign-info.component.html',
-  styleUrls: ['./campaign-info.component.scss']
+  selector: 'app-campaign-detail-overview',
+  templateUrl: './campaign-detail-overview.component.html',
+  styleUrls: ['./campaign-detail-overview.component.scss']
 })
-export class CampaignInfoComponent implements OnInit, OnDestroy {
+export class CampaignDetailOverviewComponent implements OnInit, OnDestroy {
 
   public campaign:Campaign = null;
   private campaignSubscription: Subscription;
