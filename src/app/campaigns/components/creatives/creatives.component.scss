@@ -1,0 +1,53 @@
+.photo-icon{
+    background: url(/assets/icons/baseline-photo-24px.svg);
+}
+
+.creatives{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        @media screen and (max-width:750px){
+            flex-wrap: wrap;
+        }
+    }
+
+    &-image{
+        width: 200px;
+        height: 200px;
+        display: block;
+        background-size: cover;
+        background-color: #F0F0F0;
+        background-repeat: no-repeat;
+        border-radius: 12px;
+        @media screen and (max-width:750px){
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    &-left{
+        display: flex;
+        flex-grow: 1;
+        img{
+            height: 150px;
+            flex-grow: 1;
+        }
+    }
+
+    &-right{
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        &-item{
+            margin-bottom: 20px;
+        }
+
+        font-size: 18px;
+        & span:first-child{
+            font-weight: 600;
+        }        
+    }
+}

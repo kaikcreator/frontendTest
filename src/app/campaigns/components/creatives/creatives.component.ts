@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { environment } from '../../../../environments/environment';
+
 import { Creatives } from '../../models/creatives';
 
 @Component({
@@ -8,6 +10,7 @@ import { Creatives } from '../../models/creatives';
 })
 export class CreativesComponent implements OnInit {
 
+  public imgBasePath = environment.urls.images;
   @Input() creatives:Creatives = null;
   
   constructor() { }

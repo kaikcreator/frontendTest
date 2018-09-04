@@ -1,3 +1,28 @@
-<p>
-  creatives works!
-</p>
+<mat-card class="creatives">  
+  <mat-card-content class="creatives-container" *ngIf="creatives">
+        <div class="creatives-left">
+          <div *ngIf="creatives.image" class="creatives-image"
+          [ngStyle]="{'background-image': 'url(' + imgBasePath + '/' + creatives.image + ')'}">
+          </div>
+          <i *ngIf="!creatives.image" class="photo-icon creatives-image"></i>
+        </div>
+
+        <div class="creatives-right">
+            <div class="creatives-right-item" *ngIf="creatives.header">
+              <span>Header: </span> <span>{{creatives.header}} €</span>
+            </div>
+            <div class="creatives-right-item" *ngIf="creatives.header_1">
+              <span>Header 1: </span> <span>{{creatives.header_1}} €</span>
+            </div>
+            <div class="creatives-right-item" *ngIf="creatives.header_2">
+              <span>Header 2: </span> <span>{{creatives.header_2}} €</span>
+            </div>         
+            <div class="creatives-right-item">
+              <span>Description: </span> <span>{{creatives.description}} €</span>
+            </div>                            
+            <div class="creatives-right-item">
+              <span>Url: </span> <span>{{creatives.url}} €</span>
+            </div>                                 
+        </div>                 
+  </mat-card-content>
+</mat-card> 
