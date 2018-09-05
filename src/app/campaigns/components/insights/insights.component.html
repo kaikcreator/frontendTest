@@ -1,3 +1,33 @@
-<p>
-  insights works!
-</p>
+<mat-card class="insights">  
+    <mat-card-content class="insights-container" *ngIf="insights">
+      <div class="insights-left">
+        <div class="insights-row"> 
+          <span>Impressions: </span> <span>{{insights.impressions}}</span>
+        </div>
+        <div class="insights-row"> 
+          <span>Clicks: </span> <span>{{insights.clicks}}</span>
+        </div>        
+        <div class="insights-row"> 
+          <span>Website Visits: </span> <span>{{insights.websiteVisits}}</span>
+        </div>        
+        <div class="insights-row"> 
+          <span>Nanos score: </span> <span>{{insights.nanosScore}}</span>
+        </div>                
+      </div>
+
+      <div class="insights-right">
+        <div class="insights-row"> 
+            <span>Cost per click: </span> <span>{{insights.costPerClick}}</span>
+          </div>
+          <div class="insights-row"> 
+            <span>Click through rate: </span> <span>{{insights.clickThroughRate}}</span>
+          </div>        
+          <div class="insights-row"> 
+            <span>Advanced KPI 1: </span> <span>{{insights.advancedKpi_1}}</span>
+          </div>        
+          <div class="insights-row"> 
+            <span>Advanced KPI 2: </span> <span>{{insights.advancedKpi_2}}</span>
+          </div>          
+      </div>      
+    </mat-card-content>
+  </mat-card> 
