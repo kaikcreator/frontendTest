@@ -9,14 +9,9 @@
   
     <mat-card-content>
         <p class="campaign-card-goal"> <span>GOAL: </span> {{campaign.goal}}</p>
-        <div class="campaign-card-platforms">
-          <div>Platforms:</div>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let platform of campaign.platforms | keyvalue">{{platform.key}}</mat-chip>
-          </mat-chip-list>
-        </div>
+        <app-labeled-chips [list]="campaign.platforms | keysarray">
+          <span>Platforms: </span>
+        </app-labeled-chips>   
     </mat-card-content>
-  
   </ng-container>    
-  
-  </mat-card>
+</mat-card>

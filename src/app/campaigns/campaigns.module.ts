@@ -13,6 +13,8 @@ import { PlatformOverviewComponent } from './components/platform-overview/platfo
 import { StatusComponent } from './components/status/status.component';
 import { CreativesComponent } from './components/creatives/creatives.component';
 import { InsightsComponent } from './components/insights/insights.component';
+import { LabeledChipsComponent } from './components/labeled-chips/labeled-chips.component';
+import { KeysArrayPipe } from './pipes/keys-array.pipe';
 
 
 
@@ -31,6 +33,7 @@ import { InsightsComponent } from './components/insights/insights.component';
     MatProgressBarModule,
     MatGridListModule
   ],
-  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignDetailOverviewComponent, CampaignDetailPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent, CreativesComponent, InsightsComponent]
+  providers:[KeysArrayPipe],
+  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignDetailOverviewComponent, CampaignDetailPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent, CreativesComponent, InsightsComponent, LabeledChipsComponent, KeysArrayPipe]
 })
 export class CampaignsModule { }

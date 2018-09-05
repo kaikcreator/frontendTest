@@ -1,53 +1,29 @@
 <mat-card>  
-  <mat-card-content class="target-audiance-container" *ngIf="targetAudience">
-        <div class="target-audiance-row"> 
+  <mat-card-content class="target-audience-container" *ngIf="targetAudience">
+
+        <app-labeled-chips [list]="targetAudience.languages">
           <span>Languages: </span>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let language of targetAudience.languages">
-              {{language}}
-            </mat-chip>
-          </mat-chip-list>  
-        </div>
+        </app-labeled-chips>
 
-        <div class="target-audiance-row"> 
+        <app-labeled-chips [list]="targetAudience.genders">
           <span>Genders: </span>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let gender of targetAudience.genders">
-              {{gender}}
-            </mat-chip>
-          </mat-chip-list>  
-        </div>
+        </app-labeled-chips>        
 
-        <div class="target-audiance-row">
+        <div class="target-audience-range">
           <span>Age range: </span> <span>{{targetAudience.age.min}} - {{targetAudience.age.max}}</span>
         </div>
 
-        <div class="target-audiance-row"> 
+        <app-labeled-chips [list]="targetAudience.locations">
           <span>Locations: </span>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let location of targetAudience.locations">
-              {{location}}
-            </mat-chip>
-          </mat-chip-list>  
-        </div>          
-
-        <div class="target-audiance-row"> 
-          <span>Interests: </span>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let interest of targetAudience.interests">
-              {{interest}}
-            </mat-chip>
-          </mat-chip-list>  
-        </div> 
+        </app-labeled-chips>
         
-        <div class="target-audiance-row"> 
+        <app-labeled-chips [list]="targetAudience.interests">
+          <span>Interests: </span>
+        </app-labeled-chips>
+
+        <app-labeled-chips [list]="targetAudience.keywords">
           <span>Keywords: </span>
-          <mat-chip-list>
-            <mat-chip disabled *ngFor="let keyword of targetAudience.keywords">
-              {{keyword}}
-            </mat-chip>
-          </mat-chip-list>  
-        </div>           
+        </app-labeled-chips>           
 
   </mat-card-content>
 </mat-card> 

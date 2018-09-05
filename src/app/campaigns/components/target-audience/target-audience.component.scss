@@ -1,19 +1,20 @@
-.target-audience-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.target-audiance-row{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 24px;
-    
-    &>span:first-child{
-        font-weight: 600;
-        margin-right: 10px;
+.target-audience{
+    &-container{
+        display: flex;
+        flex-direction: column;
     }
+    &-range{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 24px;
+        
+        span:first-child{
+            font-weight: 600;
+            margin-right: 10px;
+        }
 
-    &>span{
-        line-height: 32px;
+        span {
+            line-height: 32px;
+        }
     }
 }

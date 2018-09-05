@@ -12,12 +12,9 @@
       
         <mat-card-content>
             <p class="campaign-card-goal"> <span>GOAL: </span> {{item.goal}}</p>
-            <div class="campaign-card-platforms">
-              <div>Platforms:</div>
-              <mat-chip-list>
-                <mat-chip disabled *ngFor="let platform of item.platforms | keyvalue">{{platform.key}}</mat-chip>
-              </mat-chip-list>
-            </div>
+            <app-labeled-chips [list]="item.platforms | keysarray" class="campaign-card-platforms">
+              <span>Platforms: </span>
+            </app-labeled-chips>   
         </mat-card-content>
       
         <mat-card-actions class="campaign-card-footer">
