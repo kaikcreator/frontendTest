@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatGridListModule, MatSidenavModule, MatListModule, MatProgressBarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatGridListModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatIconModule } from '@angular/material';
 
 import { CampaignsListComponent } from './pages/campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './pages/campaign-detail/campaign-detail.component';
@@ -31,7 +31,8 @@ import { KeysArrayPipe } from './pipes/keys-array.pipe';
     MatSidenavModule,
     MatListModule,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
   providers:[KeysArrayPipe],
   declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignDetailOverviewComponent, CampaignDetailPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent, CreativesComponent, InsightsComponent, LabeledChipsComponent, KeysArrayPipe]

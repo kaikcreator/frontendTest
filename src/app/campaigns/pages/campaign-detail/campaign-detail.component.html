@@ -4,16 +4,24 @@
   </mat-toolbar>
   
   <mat-sidenav-container class="campaign-sidenav">
-    <mat-sidenav class="campaign-sidenav-side" opened mode="side">
+    <mat-sidenav class="campaign-sidenav-side" [opened]="!mobileQuery.matches" 
+      [mode]="mobileQuery.matches ? 'over':'side'" #sidenav>
       <mat-list>
-        <mat-list-item routerLink="overview" routerLinkActive="active">General</mat-list-item>
-        <mat-list-item *ngFor="let platform of campaign.platforms | keyvalue" routerLink="{{platform.key}}" routerLinkActive="active">
+        <mat-list-item routerLink="overview" routerLinkActive="active" 
+          (click)="mobileQuery.matches ? sidenav.toggle() : null">
+          General
+        </mat-list-item>
+        <mat-list-item *ngFor="let platform of campaign.platforms | keyvalue" routerLink="{{platform.key}}" 
+          routerLinkActive="active" (click)="mobileQuery.matches ? sidenav.toggle() : null">
           {{platform.key}}
         </mat-list-item>
       </mat-list>
     </mat-sidenav>
   
     <mat-sidenav-content class="campaign-sidenav-content">
+      <button mat-fab class="campaign-sidenav-menu" *ngIf="mobileQuery.matches" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
       <div class="campaign-detail-container">
         <router-outlet></router-outlet>
       </div>
