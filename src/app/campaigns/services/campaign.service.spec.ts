@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CampaignService } from './campaign.service';
 
 describe('CampaignService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CampaignService]
+      providers: [CampaignService],
+      imports: [HttpClientTestingModule]
     });
   });
 

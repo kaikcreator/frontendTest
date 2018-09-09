@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlatformOverviewComponent } from './platform-overview.component';
+import { MatCardModule, MatChipsModule } from '@angular/material';
+import { StatusComponent } from '../status/status.component';
 
 describe('PlatformOverviewComponent', () => {
   let component: PlatformOverviewComponent;
@@ -8,7 +10,8 @@ describe('PlatformOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlatformOverviewComponent ]
+      declarations: [ PlatformOverviewComponent, StatusComponent ],
+      imports: [ MatCardModule, MatChipsModule ]
     })
     .compileComponents();
   }));

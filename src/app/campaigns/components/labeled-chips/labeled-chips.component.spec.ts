@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LabeledChipsComponent } from './labeled-chips.component';
+import { MatChipsModule } from '@angular/material';
 
 describe('LabeledChipsComponent', () => {
   let component: LabeledChipsComponent;
@@ -8,7 +9,8 @@ describe('LabeledChipsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LabeledChipsComponent ]
+      declarations: [ LabeledChipsComponent ],
+      imports: [ MatChipsModule ]
     })
     .compileComponents();
   }));
