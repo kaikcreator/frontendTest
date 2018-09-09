@@ -2,10 +2,10 @@ import { Platform } from "./platform";
 
 export class Campaign {
     _id: Number;
-    name: String;
-    goal: String;
+    name: string;
+    goal: string;
     totalBudget: Number;
-    status: String;
+    status: string;
     platforms: Map<string, Platform>
 
     constructor({ _id, name, goal, totalBudget, status, platforms }) {

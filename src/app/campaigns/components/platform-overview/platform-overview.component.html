@@ -2,7 +2,7 @@
   <mat-card-content class="platform-overview-container" *ngIf="platform">
         <div class="platform-overview-left">
           <div class="platform-overview-date">
-            {{platform.startDate | date:short}} - {{platform.endDate | date:short}}
+            {{platform.startDate | date:'M/d/yy'}} - {{platform.endDate | date:'M/d/yy'}}
           </div>
           <app-status value="{{platform.status}}" class="platform-overview-cell"></app-status>
         </div>

@@ -8,7 +8,7 @@ import { TargetAudiance } from '../../models/target-audience';
 })
 export class TargetAudienceComponent implements OnInit {
 
-  @Input() targetAudience: TargetAudiance = null;
+  @Input() targetAudience: TargetAudiance;
   
   constructor() { }
 

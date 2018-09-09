@@ -1,11 +1,20 @@
 export class TargetAudiance {
-    languages: String[];
-    genders: String[];
+    languages: string[];
+    genders: string[];
     age: {
         min: Number;
         max: Number;
     };
-    locations: String[];
-    interests: String[];
-    keywords: String[];
+    locations: string[];
+    interests: string[];
+    keywords: string[];
+
+    constructor(data){
+        this.languages = data.languages;
+        this.genders = data.genders;
+        this.age = data.age;
+        this.locations = data.locations;
+        this.interests = data.interests;
+        this.keywords = data.keywords;
+    }
 }

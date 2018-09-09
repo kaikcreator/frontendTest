@@ -3,7 +3,7 @@ import { Insights } from './insights';
 import { TargetAudiance } from './target-audience';
 
 export class Platform {
-    status: String;
+    status: string;
     totalBudget: Number;
     remainingBudget: Number;
     startDate: Date;
@@ -12,14 +12,14 @@ export class Platform {
     creatives: Creatives;
     insights: Insights;
 
-    constructor({ status, totalBudget, remainingBudget, startDate, endDate, targetAudiance, creatives, insights }) {
-        this.status = status;
-        this.totalBudget = totalBudget;
-        this.remainingBudget = remainingBudget;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.targetAudiance = targetAudiance;
-        this.creatives = creatives;
-        this.insights = insights;
+    constructor(data) {
+        this.status = data.status;
+        this.totalBudget = data.totalBudget;
+        this.remainingBudget = data.remainingBudget;
+        this.startDate = data.startDate;
+        this.endDate = data.endDate;
+        this.targetAudiance = data.targetAudiance;
+        this.creatives = data.creatives;
+        this.insights = data.insights;
     }
 };
