@@ -10,7 +10,7 @@
         </app-labeled-chips>        
 
         <div class="target-audience-range">
-          <span>Age range: </span> <span>{{targetAudience.age.min}} - {{targetAudience.age.max}}</span>
+          <span>Age range: </span> <span>{{targetAudience.age?.min}} - {{targetAudience.age?.max}}</span>
         </div>
 
         <app-labeled-chips [list]="targetAudience.locations">

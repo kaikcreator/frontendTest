@@ -15,7 +15,7 @@ describe('CampaignDetailOverviewComponent', () => {
   let component: CampaignDetailOverviewComponent;
   let fixture: ComponentFixture<CampaignDetailOverviewComponent>;
 
-  const testCampaign = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ platform_1:{_id:1}, platform_2:{_id:2} } });
+  const testCampaign = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ platform_1:{}, platform_2:{} } });
 
   const parentComponentStub = {
     get campaign$() {

@@ -19,7 +19,7 @@ describe('CampaignsListComponent', () => {
   let fixture: ComponentFixture<CampaignsListComponent>;
 
   const testCampaign1 = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ 
-    platform_1:{_id:1}, platform_2:{_id:2} } });
+    platform_1:{}, platform_2:{} } });
   const testCampaign2 = new Campaign({_id:2, name:'campaign 2', goal:'test goal 2', totalBudget:200, status:'Ended', platforms:{} }); 
   const testCampaigns = [testCampaign1, testCampaign2];
 
