@@ -22,4 +22,4 @@ export class Platform {
         this.creatives = data.creatives;
         this.insights = data.insights;
     }
-};
+}

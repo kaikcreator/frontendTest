@@ -27,7 +27,7 @@ describe('PageNotFoundComponent', () => {
     // find DebugElement with an attached RouterLinkStubDirective
     linkDe = fixture.debugElement.query(By.directive(RouterLinkDirectiveStub));
     // get attached link directive instance using the DebugElement's injector
-    routerLink = linkDe.injector.get(RouterLinkDirectiveStub);    
+    routerLink = linkDe.injector.get(RouterLinkDirectiveStub);
   });
 
   it('should create', () => {
@@ -37,7 +37,7 @@ describe('PageNotFoundComponent', () => {
   it('can get RouterLink from template', () => {
     expect(routerLink.linkParams).toBe('/');
   });
-  
+
   it('can click `Go back` link in template', () => {
     expect(linkDe.navigatedTo).toBeFalsy('should not have navigated yet');
     linkDe.triggerEventHandler('click', null);

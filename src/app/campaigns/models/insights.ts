@@ -18,4 +18,4 @@ export class Insights {
         this.advancedKpi_1 = data.advancedKpi_1;
         this.advancedKpi_2 = data.advancedKpi_2;
     }
-};
+}

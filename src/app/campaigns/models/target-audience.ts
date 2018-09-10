@@ -9,7 +9,7 @@ export class TargetAudiance {
     interests: string[];
     keywords: string[];
 
-    constructor(data){
+    constructor(data) {
         this.languages = data.languages;
         this.genders = data.genders;
         this.age = data.age;

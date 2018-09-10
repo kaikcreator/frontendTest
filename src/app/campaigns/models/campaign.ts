@@ -1,4 +1,4 @@
-import { Platform } from "./platform";
+import { Platform } from './platform';
 
 export class Campaign {
     _id: Number;
@@ -6,7 +6,7 @@ export class Campaign {
     goal: string;
     totalBudget: Number;
     status: string;
-    platforms: Map<string, Platform>
+    platforms: Map<string, Platform>;
 
     constructor({ _id, name, goal, totalBudget, status, platforms }) {
         this._id = _id;
@@ -14,8 +14,8 @@ export class Campaign {
         this.goal = goal;
         this.totalBudget = totalBudget;
         this.status = status;
-        let platformObjectsArray = Object.entries(platforms);
-        let platformsArray = <[string, Platform][]>platformObjectsArray.map(item => [item[0], new Platform(<Platform>item[1])]);
+        const platformObjectsArray = Object.entries(platforms);
+        const platformsArray = <[string, Platform][]>platformObjectsArray.map(item => [item[0], new Platform(<Platform>item[1])]);
         this.platforms = new Map(platformsArray);
     }
 }

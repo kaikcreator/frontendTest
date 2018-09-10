@@ -17,23 +17,23 @@ const routes: Routes = [
   {
     path: 'campaigns/:id',
     component: CampaignDetailComponent,
-    children:[
-      {path: '', redirectTo:'overview', pathMatch:'full'},
-      {path: 'overview', component:CampaignDetailOverviewComponent},
-      {path: ':platform', component:CampaignDetailPlatformComponent},
+    children: [
+      {path: '', redirectTo: 'overview', pathMatch: 'full'},
+      {path: 'overview', component: CampaignDetailOverviewComponent},
+      {path: ':platform', component: CampaignDetailPlatformComponent},
     ]
-  },  
+  },
   { path: '',
     redirectTo: '/campaigns',
     pathMatch: 'full'
   },
-  { path: '404', 
+  { path: '404',
     loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule',
     data: {
       title: '404 - Not found!'
-    } 
+    }
   },
-  { path: '**', 
+  { path: '**',
     redirectTo: '404'
   }
 ];

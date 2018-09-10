@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urls:{
+  urls: {
     api: 'http://localhost:9000',
     images: 'http://localhost:9000/images'
   }

@@ -18,9 +18,9 @@ describe('CampaignsListComponent', () => {
   let component: CampaignsListComponent;
   let fixture: ComponentFixture<CampaignsListComponent>;
 
-  const testCampaign1 = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ 
-    platform_1:{}, platform_2:{} } });
-  const testCampaign2 = new Campaign({_id:2, name:'campaign 2', goal:'test goal 2', totalBudget:200, status:'Ended', platforms:{} }); 
+  const testCampaign1 = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: {
+    platform_1: {}, platform_2: {} } });
+  const testCampaign2 = new Campaign({_id: 2, name: 'campaign 2', goal: 'test goal 2', totalBudget: 200, status: 'Ended', platforms: {} });
   const testCampaigns = [testCampaign1, testCampaign2];
 
   const testCampaignsService = {
@@ -34,7 +34,7 @@ describe('CampaignsListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CampaignsListComponent, StatusComponent, LabeledChipsComponent, KeysArrayPipe ],
       imports: [ MatCardModule, MatToolbarModule, RouterTestingModule, MatChipsModule, HttpClientTestingModule ],
-      providers:[{provide:CampaignService, useValue:testCampaignsService}]
+      providers: [{provide: CampaignService, useValue: testCampaignsService}]
     })
     .compileComponents();
   }));
@@ -42,7 +42,7 @@ describe('CampaignsListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CampaignsListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();//OnIinit
+    fixture.detectChanges(); //OnIinit
   });
 
   it('should create', () => {
@@ -52,68 +52,68 @@ describe('CampaignsListComponent', () => {
   it('should have an undefined campaigns property by default', () => {
     expect(component.campaigns).toBeUndefined();
   });
-  
+
   it('should retrieve campaigns from campaignsService and set the campaigns property', () => {
     getTestScheduler().flush(); // flush the observables
     fixture.detectChanges();
     expect(component.campaigns).toBeDefined();
     expect(component.campaigns.length).toEqual(2);
     expect(component.campaigns).toEqual(testCampaigns);
-  }); 
-  
+  });
+
   it('should not display the campaigns container if there are no campaigns', () => {
-    let campaignsContainer = fixture.nativeElement.querySelector('.campaigns-container');
+    const campaignsContainer = fixture.nativeElement.querySelector('.campaigns-container');
     expect(campaignsContainer).toBeNull();
-  });    
+  });
 
   it('should display a `No available campaigns` message if there are no campaigns', () => {
-    let campaignsEmpty = fixture.nativeElement.querySelector('.campaigns-empty');
+    const campaignsEmpty = fixture.nativeElement.querySelector('.campaigns-empty');
     expect(campaignsEmpty.textContent).toContain('No available campaigns at this moment');
-  }); 
-  
+  });
+
   it('should not display a `No available campaigns` message if there`s any campaign', () => {
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();      
-    let campaignsEmpty = fixture.nativeElement.querySelector('.campaigns-empty');
+    fixture.detectChanges();
+    const campaignsEmpty = fixture.nativeElement.querySelector('.campaigns-empty');
     expect(campaignsEmpty).toBeNull();
-  });   
+  });
 
   it('should display the campaigns container when there are campaigns', () => {
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();    
-    let campaignsContainer = fixture.nativeElement.querySelector('.campaigns-container');
+    fixture.detectChanges();
+    const campaignsContainer = fixture.nativeElement.querySelector('.campaigns-container');
     expect(campaignsContainer).toBeTruthy();
-  });  
-  
+  });
+
   it('should display name, status, goal, platforms and budget of every campaign', () => {
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();    
-    let campaignCardsDe = fixture.debugElement.queryAll(By.directive(MatCard));
+    fixture.detectChanges();
+    const campaignCardsDe = fixture.debugElement.queryAll(By.directive(MatCard));
 
-    campaignCardsDe.forEach((campaignDe, i) =>{
+    campaignCardsDe.forEach((campaignDe, i) => {
       //check title
-      let campaignTitle = campaignDe.nativeElement.querySelector('.campaign-card-title');
+      const campaignTitle = campaignDe.nativeElement.querySelector('.campaign-card-title');
       expect(campaignTitle.textContent).toContain(testCampaigns[i].name);
 
       //check status
-      let statusComponent = campaignDe.query(By.directive(StatusComponent)).componentInstance;
+      const statusComponent = campaignDe.query(By.directive(StatusComponent)).componentInstance;
       expect(statusComponent.value).toEqual(testCampaigns[i].status);
 
       //check goal
-      let campaignGoal = campaignDe.nativeElement.querySelector('.campaign-card-goal');
-      expect(campaignGoal.textContent).toContain(testCampaigns[i].goal); 
-      
-      //check platforms
-      let platformChipsComponent = campaignDe.query(By.css('.campaign-card-platforms')).componentInstance;
-      let platformKeys =  Array.from(testCampaigns[i].platforms.keys());
-      expect(platformChipsComponent.list).toEqual(platformKeys);   
-      
-      //check budget
-      let campaignBudget = campaignDe.nativeElement.querySelector('.campaign-card-footer');
-      expect(campaignBudget.textContent).toContain(testCampaigns[i].totalBudget); 
+      const campaignGoal = campaignDe.nativeElement.querySelector('.campaign-card-goal');
+      expect(campaignGoal.textContent).toContain(testCampaigns[i].goal);
 
-    })
-    
-  });     
+      //check platforms
+      const platformChipsComponent = campaignDe.query(By.css('.campaign-card-platforms')).componentInstance;
+      const platformKeys =  Array.from(testCampaigns[i].platforms.keys());
+      expect(platformChipsComponent.list).toEqual(platformKeys);
+
+      //check budget
+      const campaignBudget = campaignDe.nativeElement.querySelector('.campaign-card-footer');
+      expect(campaignBudget.textContent).toContain(testCampaigns[i].totalBudget);
+
+    });
+
+  });
 
 });

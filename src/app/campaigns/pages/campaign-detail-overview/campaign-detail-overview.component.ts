@@ -12,17 +12,17 @@ import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.comp
 })
 export class CampaignDetailOverviewComponent implements OnInit, OnDestroy {
 
-  public campaign:Campaign = null;
+  public campaign: Campaign = null;
   private campaignSubscription: Subscription;
 
-  constructor(private parent:CampaignDetailComponent) { }
+  constructor(private parent: CampaignDetailComponent) { }
 
   ngOnInit() {
     this.campaignSubscription = this.parent.campaign$.subscribe(campaign => this.campaign = campaign);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.campaignSubscription.unsubscribe();
-  } 
+  }
 
 }

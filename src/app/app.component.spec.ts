@@ -30,7 +30,7 @@ describe('AppComponent', () => {
   }));
 
   it(`should contain a router-outlet element`, async(() => {
-    let routerOutlet = fixture.nativeElement.querySelector('router-outlet');
+    const routerOutlet = fixture.nativeElement.querySelector('router-outlet');
     expect(routerOutlet).toBeTruthy();
   }));
 });

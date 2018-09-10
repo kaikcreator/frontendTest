@@ -28,11 +28,11 @@ describe('CampaignDetailPlatformComponent', () => {
   let activatedRoute;
 
   const testPlatform = new Platform({
-    targetAudiance:new TargetAudiance({}),
+    targetAudiance: new TargetAudiance({}),
     creatives: new Creatives({}),
     insights: new Insights({})
   });
-  const testCampaign = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ platform_1:{}, platform_2:testPlatform } });
+  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: testPlatform } });
 
   const parentComponentStub = {
     get campaign$() {
@@ -44,12 +44,12 @@ describe('CampaignDetailPlatformComponent', () => {
   beforeEach(async(() => {
     activatedRoute = new ActivatedRouteStub();
     TestBed.configureTestingModule({
-      declarations: [ CampaignDetailPlatformComponent, PlatformOverviewComponent, 
+      declarations: [ CampaignDetailPlatformComponent, PlatformOverviewComponent,
         TargetAudienceComponent, CreativesComponent, InsightsComponent, StatusComponent, LabeledChipsComponent ],
       imports: [MatCardModule, HttpClientTestingModule, MatChipsModule, RouterTestingModule],
-      providers:[
-        {provide:CampaignDetailComponent, useValue:parentComponentStub},
-        {provide:ActivatedRoute, useValue:activatedRoute},]
+      providers: [
+        {provide: CampaignDetailComponent, useValue: parentComponentStub},
+        {provide: ActivatedRoute, useValue: activatedRoute}, ]
     })
     .compileComponents();
   }));
@@ -69,35 +69,35 @@ describe('CampaignDetailPlatformComponent', () => {
   });
 
   it('should get platform name from route params, and retrieve the campaign from CampaignService', () => {
-    const selectedPlatform = 'platform_2';    
-    activatedRoute.setParamMap({platform:selectedPlatform}); 
+    const selectedPlatform = 'platform_2';
+    activatedRoute.setParamMap({platform: selectedPlatform});
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();    
+    fixture.detectChanges();
     expect(component.platform).toBeDefined();
     expect(component.platform).toEqual(testPlatform);
-  });  
+  });
 
   it('should create a component for each platform property', () => {
-    const selectedPlatform = 'platform_2';    
-    activatedRoute.setParamMap({platform:selectedPlatform}); 
+    const selectedPlatform = 'platform_2';
+    activatedRoute.setParamMap({platform: selectedPlatform});
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();    
+    fixture.detectChanges();
 
     //check platform overview component
-    let platformOverviewComponent = fixture.debugElement.query(By.directive(PlatformOverviewComponent)).componentInstance;
+    const platformOverviewComponent = fixture.debugElement.query(By.directive(PlatformOverviewComponent)).componentInstance;
     expect(platformOverviewComponent.platform).toEqual(testPlatform);
 
     //check target audience component
-    let targetAudienceComponent = fixture.debugElement.query(By.directive(TargetAudienceComponent)).componentInstance;
+    const targetAudienceComponent = fixture.debugElement.query(By.directive(TargetAudienceComponent)).componentInstance;
     expect(targetAudienceComponent.targetAudience).toEqual(testPlatform.targetAudiance);
-    
+
     //check creatives component
-    let creativesComponent = fixture.debugElement.query(By.directive(CreativesComponent)).componentInstance;
+    const creativesComponent = fixture.debugElement.query(By.directive(CreativesComponent)).componentInstance;
     expect(creativesComponent.creatives).toEqual(testPlatform.creatives);
-    
+
     //check insights component
-    let insightsComponent = fixture.debugElement.query(By.directive(InsightsComponent)).componentInstance;
-    expect(insightsComponent.insights).toEqual(testPlatform.insights);    
-  });    
-   
+    const insightsComponent = fixture.debugElement.query(By.directive(InsightsComponent)).componentInstance;
+    expect(insightsComponent.insights).toEqual(testPlatform.insights);
+  });
+
 });

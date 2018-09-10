@@ -14,19 +14,19 @@ export class CampaignDetailPlatformComponent implements OnInit, OnDestroy {
   platform: Platform;
   campaignSubscription: Subscription;
 
-  constructor(private parent:CampaignDetailComponent, private route:ActivatedRoute) {
+  constructor(private parent: CampaignDetailComponent, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      let name = params.get('platform');
+      const name = params.get('platform');
       this.campaignSubscription = this.parent.campaign$.subscribe(campaign => {
         this.platform = campaign.platforms.get(name);
-      })
+      });
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.campaignSubscription.unsubscribe();
   }
 

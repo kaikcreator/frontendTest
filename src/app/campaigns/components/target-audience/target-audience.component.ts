@@ -9,7 +9,7 @@ import { TargetAudiance } from '../../models/target-audience';
 export class TargetAudienceComponent implements OnInit {
 
   @Input() targetAudience: TargetAudiance;
-  
+
   constructor() { }
 
   ngOnInit() {

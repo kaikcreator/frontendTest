@@ -34,7 +34,7 @@ describe('StatusComponent', () => {
     expect(testHostComponent).toBeTruthy();
     expect(component).toBeTruthy();
   });
-  
+
   it('should have an empty color by default', () => {
     expect(component.color).toBe('');
   });
@@ -56,29 +56,29 @@ describe('StatusComponent', () => {
     color = 'warn';
     testHostComponent.testValue = status;
     fixture.detectChanges();
-    expect(component.color).toBe(color);   
+    expect(component.color).toBe(color);
 
     //status Scheduled
     status = 'Scheduled';
     color = 'default';
     testHostComponent.testValue = status;
     fixture.detectChanges();
-    expect(component.color).toBe(color);  
-    
+    expect(component.color).toBe(color);
+
     //unexpected status
     status = 'Unexpected';
     color = '';
     testHostComponent.testValue = status;
     fixture.detectChanges();
-    expect(component.color).toBe(color);      
-  })
+    expect(component.color).toBe(color);
+  });
 
   it('should display the "value" input inside a mat-chip element', () => {
     const testValue = 'some value';
     testHostComponent.testValue = testValue;
     fixture.detectChanges();
-    expect(matChip.textContent.trim()).toBe(testValue.trim());    
-  })
+    expect(matChip.textContent.trim()).toBe(testValue.trim());
+  });
 
 
 });
@@ -88,5 +88,5 @@ describe('StatusComponent', () => {
   template: '<app-status [value]="testValue"></app-status>'
 })
 class TestHostComponent {
-  testValue: string
-};
+  testValue: string;
+}

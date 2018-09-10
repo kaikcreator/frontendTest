@@ -10,7 +10,7 @@ describe('LabeledChipsComponent', () => {
   let component: LabeledChipsComponent;
   let componentDe: DebugElement;
   let testHostComponent: TestHostComponent;
-  let fixture: ComponentFixture<TestHostComponent>;  
+  let fixture: ComponentFixture<TestHostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,24 +36,24 @@ describe('LabeledChipsComponent', () => {
   it('should contain an undefined list on init', () => {
     expect(component.list).toBeUndefined();
   });
-  
+
   it('should project content as first child', () => {
-    let projectedContent:HTMLElement = componentDe.nativeElement.children[0];
+    const projectedContent: HTMLElement = componentDe.nativeElement.children[0];
     expect(projectedContent.textContent).toContain(testHostComponent.testContentProjection);
-  }); 
-  
+  });
+
   it('should display a list of "mat-chip" elements, one for each item in "list" input', () => {
     const testList = ['item1', 'item2', 'item3'];
     testHostComponent.testList = testList;
     fixture.detectChanges();
 
-    let matChips = componentDe.nativeElement.querySelectorAll('mat-chip');
+    const matChips = componentDe.nativeElement.querySelectorAll('mat-chip');
     expect(matChips.length).toEqual(testList.length);
-    
-    testList.forEach((item, i)=>{
+
+    testList.forEach((item, i) => {
       expect(matChips[i].innerHTML).toContain(item);
-    })
-  });  
+    });
+  });
 });
 
 
@@ -67,4 +67,4 @@ describe('LabeledChipsComponent', () => {
 class TestHostComponent {
   testList: string[];
   testContentProjection = 'Projected content';
-};
+}

@@ -18,15 +18,15 @@ export class CampaignDetailComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   campaign$: Observable<Campaign> = null;
   private _mobileQueryListener: () => void;
-  
+
   constructor(
-    private campaignService: CampaignService, 
-    private router:Router, 
-    private route:ActivatedRoute,
+    private campaignService: CampaignService,
+    private router: Router,
+    private route: ActivatedRoute,
     public changeDetectorRef: ChangeDetectorRef,
     public media: MediaMatcher,
     private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer){
+    private sanitizer: DomSanitizer) {
       //listen to media query event to leave open or not the side menu
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -34,7 +34,7 @@ export class CampaignDetailComponent implements OnInit, OnDestroy {
 
       //register menu icon
       this.iconRegistry.addSvgIcon(
-        'menu', 
+        'menu',
         this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/baseline-menu-24px.svg')
       );
   }
@@ -42,12 +42,12 @@ export class CampaignDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.campaign$ = this.route.paramMap.pipe(
       switchMap( params => {
-        let idParam = params.get('id');
-        let id = parseInt(idParam, 10);
+        const idParam = params.get('id');
+        const id = parseInt(idParam, 10);
         return this.campaignService.findCampaignById(id);
       }),
       tap(campaign => {
-        if(!campaign){
+        if (!campaign) {
           this.router.navigate(['/404']);
         }
       })
@@ -56,6 +56,6 @@ export class CampaignDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
-  }  
+  }
 
 }

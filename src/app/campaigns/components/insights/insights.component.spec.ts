@@ -11,7 +11,7 @@ describe('InsightsComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   let testHostComponent: TestHostComponent;
   let componentDe: DebugElement;
-  let testInsights = new Insights({
+  const testInsights = new Insights({
     impressions: 1,
     clicks: 2,
     websiteVisits: 3,
@@ -20,7 +20,7 @@ describe('InsightsComponent', () => {
     clickThroughRate: 6,
     advancedKpi_1: 7,
     advancedKpi_2: 8,
-  })
+  });
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,33 +35,33 @@ describe('InsightsComponent', () => {
     testHostComponent = fixture.componentInstance;
     fixture.detectChanges();
     componentDe = fixture.debugElement.query(By.directive(InsightsComponent));
-    component = componentDe.componentInstance;   
+    component = componentDe.componentInstance;
   });
 
   it('should create', () => {
     expect(testHostComponent).toBeTruthy();
-    expect(component).toBeTruthy();    
+    expect(component).toBeTruthy();
   });
 
   it('should have undefined insights by default', () => {
     expect(component.insights).toBeUndefined();
-  }); 
-  
+  });
+
   it('should display an empty card if there`s no insights', () => {
-    let content = componentDe.nativeElement.querySelector('mat-card');
+    const content = componentDe.nativeElement.querySelector('mat-card');
     expect(content.children.length).toEqual(0);
-  });  
-  
+  });
+
   it('should update insights input based on the received input', () => {
     testHostComponent.testInsights = testInsights;
     fixture.detectChanges();
     expect(component.insights).toEqual(testInsights);
   });
-  
+
   it('should display a card with several items if there`s some insights property', () => {
     testHostComponent.testInsights = testInsights;
     fixture.detectChanges();
-    let rows = componentDe.nativeElement.querySelectorAll('.insights-row');
+    const rows = componentDe.nativeElement.querySelectorAll('.insights-row');
     expect(rows.length).toEqual(8);
     expect(rows[0].textContent).toContain(`Impressions: ${testInsights.impressions}`);
     expect(rows[1].textContent).toContain(`Clicks: ${testInsights.clicks}`);
@@ -71,7 +71,7 @@ describe('InsightsComponent', () => {
     expect(rows[5].textContent).toContain(`Click through rate: ${testInsights.clickThroughRate}`);
     expect(rows[6].textContent).toContain(`Advanced KPI 1: ${testInsights.advancedKpi_1}`);
     expect(rows[7].textContent).toContain(`Advanced KPI 2: ${testInsights.advancedKpi_2}`);
-  });   
+  });
 
 });
 
@@ -84,5 +84,5 @@ describe('InsightsComponent', () => {
 })
 class TestHostComponent {
   testInsights: Insights;
-};
+}
 

@@ -12,14 +12,14 @@ import { Campaign } from '../models/campaign';
 export class CampaignService {
 
   private campaignsUrl = 'http://localhost:9000/campaigns';
-  public campaigns: Campaign[]; 
+  public campaigns: Campaign[];
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   /**
    * GET campaigns from the server.
    * Return an observable with an array of campaigns
-   */  
+   */
   getCampaigns (): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(this.campaignsUrl)
     .pipe(
@@ -34,27 +34,26 @@ export class CampaignService {
   /**
    * GET specific campaign from the server.
    * Return an observable with the requested campaign
-   */  
+   */
   getCampaignById (id) {
     return this.http.get<Campaign>(`${this.campaignsUrl}/${id}`)
     .pipe(
-      map( item => { return new Campaign(item); } ),
+      map( item => new Campaign(item) ),
       catchError(this.handleError('getCampaign', null))
     );
-  }  
+  }
 
   /**
    * Find a specific campaign
-   * Return an observable with the expected campaign. The campaign is searched locally, 
+   * Return an observable with the expected campaign. The campaign is searched locally,
    * but in case there are no campaigns in memory, the specific campaign is requested to the
    * server
-   */  
-  findCampaignById(id):Observable<Campaign>{
-    if(this.campaigns){
-      let campaign = this.campaigns.find( campaign => campaign._id === id);
+   */
+  findCampaignById(id): Observable<Campaign> {
+    if (this.campaigns) {
+      const campaign = this.campaigns.find( campaign => campaign._id === id);
       return of(campaign);
-    }
-    else{
+    } else {
       return this.getCampaignById(id);
     }
   }

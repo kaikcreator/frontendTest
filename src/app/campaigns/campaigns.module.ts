@@ -34,7 +34,7 @@ import { KeysArrayPipe } from './pipes/keys-array.pipe';
     MatGridListModule,
     MatIconModule
   ],
-  providers:[KeysArrayPipe],
+  providers: [KeysArrayPipe],
   declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignDetailOverviewComponent, CampaignDetailPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent, CreativesComponent, InsightsComponent, LabeledChipsComponent, KeysArrayPipe]
 })
 export class CampaignsModule { }

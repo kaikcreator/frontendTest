@@ -6,7 +6,7 @@ export class Creatives {
     url: string;
     image: string;
 
-    constructor(data){
+    constructor(data) {
         this.header = data.header;
         this.header_1 = data.header_1;
         this.header_2 = data.header_2;
@@ -14,4 +14,4 @@ export class Creatives {
         this.url = data.url;
         this.image = data.image;
     }
-};
+}

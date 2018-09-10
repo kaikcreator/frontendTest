@@ -15,7 +15,7 @@ describe('CampaignDetailOverviewComponent', () => {
   let component: CampaignDetailOverviewComponent;
   let fixture: ComponentFixture<CampaignDetailOverviewComponent>;
 
-  const testCampaign = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ platform_1:{}, platform_2:{} } });
+  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: {} } });
 
   const parentComponentStub = {
     get campaign$() {
@@ -28,7 +28,7 @@ describe('CampaignDetailOverviewComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CampaignDetailOverviewComponent, LabeledChipsComponent, StatusComponent, KeysArrayPipe ],
       imports: [ MatCardModule, MatChipsModule ],
-      providers:[{provide:CampaignDetailComponent, useValue:parentComponentStub}]
+      providers: [{provide: CampaignDetailComponent, useValue: parentComponentStub}]
     })
     .compileComponents();
   }));
@@ -46,47 +46,47 @@ describe('CampaignDetailOverviewComponent', () => {
   it('should have an undefined campaign property by default', () => {
     expect(component.campaign).toBeFalsy();
   });
-  
+
   it('should retrieve and set campaign from campaignService', () => {
     getTestScheduler().flush(); // flush the observables
     fixture.detectChanges();
     expect(component.campaign).toBeDefined();
     expect(component.campaign).toEqual(testCampaign);
-  }); 
-  
+  });
+
   it('should not display the campaign container if there`s no campaign', () => {
-    let campaignContainer = fixture.nativeElement.querySelector('.campaign-card');
+    const campaignContainer = fixture.nativeElement.querySelector('.campaign-card');
     expect(campaignContainer.children.length).toBe(0);
-  });  
-  
+  });
+
   it('should display the campaigns container when there are campaigns', () => {
     getTestScheduler().flush(); // flush the observables
-    fixture.detectChanges();    
-    let campaignContainer = fixture.nativeElement.querySelector('.campaign-card');
+    fixture.detectChanges();
+    const campaignContainer = fixture.nativeElement.querySelector('.campaign-card');
     expect(campaignContainer.children.length).toBe(2);
-  }); 
-  
+  });
+
   it('should display budget, value, goal and platforms', () => {
     getTestScheduler().flush(); // flush the observables
     fixture.detectChanges();
-    let campaignCardDe = fixture.debugElement.query(By.directive(MatCard));
+    const campaignCardDe = fixture.debugElement.query(By.directive(MatCard));
 
     //check budget
-    let campaignBudget = campaignCardDe.nativeElement.querySelector('.campaign-card-title');
-    expect(campaignBudget.textContent).toContain(testCampaign.totalBudget);     
+    const campaignBudget = campaignCardDe.nativeElement.querySelector('.campaign-card-title');
+    expect(campaignBudget.textContent).toContain(testCampaign.totalBudget);
 
     //check status
-    let statusComponent = campaignCardDe.query(By.directive(StatusComponent)).componentInstance;
+    const statusComponent = campaignCardDe.query(By.directive(StatusComponent)).componentInstance;
     expect(statusComponent.value).toEqual(testCampaign.status);
 
     //check goal
-    let campaignGoal = campaignCardDe.nativeElement.querySelector('.campaign-card-goal');
-    expect(campaignGoal.textContent).toContain(testCampaign.goal); 
-    
+    const campaignGoal = campaignCardDe.nativeElement.querySelector('.campaign-card-goal');
+    expect(campaignGoal.textContent).toContain(testCampaign.goal);
+
     //check platforms
-    let platformChipsComponent = campaignCardDe.query(By.directive(LabeledChipsComponent)).componentInstance;
-    let platformKeys =  Array.from(testCampaign.platforms.keys());
-    expect(platformChipsComponent.list).toEqual(platformKeys);   
-  });   
+    const platformChipsComponent = campaignCardDe.query(By.directive(LabeledChipsComponent)).componentInstance;
+    const platformKeys =  Array.from(testCampaign.platforms.keys());
+    expect(platformChipsComponent.list).toEqual(platformKeys);
+  });
 
 });

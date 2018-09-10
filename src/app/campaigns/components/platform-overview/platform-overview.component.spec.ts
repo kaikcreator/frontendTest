@@ -17,9 +17,9 @@ describe('PlatformOverviewComponent', () => {
   let componentDe: DebugElement;
   let testHostComponent: TestHostComponent;
 
-  let startDate = new Date(Date.UTC(2018, 0, 1));
-  let endDate = new Date(Date.UTC(2018, 0, 31));  
-  let platform = new Platform({
+  const startDate = new Date(Date.UTC(2018, 0, 1));
+  const endDate = new Date(Date.UTC(2018, 0, 31));
+  const platform = new Platform({
     status: 'Delivering',
     totalBudget: 100,
     remainingBudget: 20,
@@ -44,7 +44,7 @@ describe('PlatformOverviewComponent', () => {
     testHostComponent = fixture.componentInstance;
     fixture.detectChanges();
     componentDe = fixture.debugElement.query(By.directive(PlatformOverviewComponent));
-    component = componentDe.componentInstance;    
+    component = componentDe.componentInstance;
   });
 
   it('should create', () => {
@@ -60,34 +60,34 @@ describe('PlatformOverviewComponent', () => {
     testHostComponent.testPlatform = platform;
     fixture.detectChanges();
     expect(component.platform).toEqual(platform);
-  }); 
-  
+  });
+
   it('should display the start and end dates', () => {
-    let pipe = new DatePipe('en');
+    const pipe = new DatePipe('en');
     testHostComponent.testPlatform = platform;
     fixture.detectChanges();
-    let dateElement = componentDe.nativeElement.querySelector('.platform-overview-date');
-    let expectedDate = pipe.transform(startDate, 'M/d/yy') +" - " + pipe.transform(endDate, 'M/d/yy');
+    const dateElement = componentDe.nativeElement.querySelector('.platform-overview-date');
+    const expectedDate = pipe.transform(startDate, 'M/d/yy') + ' - ' + pipe.transform(endDate, 'M/d/yy');
     expect(dateElement.textContent).toContain(expectedDate);
-  }); 
-  
+  });
+
   it('should display the total and remaining budgets', () => {
     testHostComponent.testPlatform = platform;
     fixture.detectChanges();
-    let budgetElements = componentDe.nativeElement.querySelectorAll('.platform-overview-budget');
-    let expectedTotal = 'Total budget: 100 €';
-    let expectedRemaining = 'Remaining budget: 20 €';
+    const budgetElements = componentDe.nativeElement.querySelectorAll('.platform-overview-budget');
+    const expectedTotal = 'Total budget: 100 €';
+    const expectedRemaining = 'Remaining budget: 20 €';
     expect(budgetElements[0].textContent).toContain(expectedTotal);
     expect(budgetElements[1].textContent).toContain(expectedRemaining);
-  });   
-  
+  });
+
   it('should display an app-status element with current status', () => {
     testHostComponent.testPlatform = platform;
     fixture.detectChanges();
-    let statusComponent = componentDe.query(By.directive(StatusComponent));
+    const statusComponent = componentDe.query(By.directive(StatusComponent));
     expect(statusComponent.componentInstance).toBeTruthy();
     expect(statusComponent.componentInstance.value).toEqual(platform.status);
-  });    
+  });
 
 });
 
@@ -101,4 +101,4 @@ describe('PlatformOverviewComponent', () => {
 })
 class TestHostComponent {
   testPlatform: Platform;
-};
+}

@@ -11,8 +11,8 @@ import { Creatives } from '../../models/creatives';
 export class CreativesComponent implements OnInit {
 
   public imgBasePath = environment.urls.images;
-  @Input() creatives:Creatives = null;
-  
+  @Input() creatives: Creatives = null;
+
   constructor() { }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { Insights } from '../../models/insights';
 })
 export class InsightsComponent implements OnInit {
 
-  @Input() insights:Insights;
+  @Input() insights: Insights;
   constructor() { }
 
   ngOnInit() {

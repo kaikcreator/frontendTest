@@ -11,20 +11,20 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class StatusComponent implements OnInit, OnChanges {
 
-  @Input() value:string;
-  public color:string;
+  @Input() value: string;
+  public color: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  ngOnChanges(changes:SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     this.updateColor();
   }
 
-  updateColor(){
-    switch(this.value){
+  updateColor() {
+    switch (this.value) {
       case 'Delivering':
         this.color = 'primary';
         break;
@@ -33,9 +33,9 @@ export class StatusComponent implements OnInit, OnChanges {
         break;
       case 'Scheduled':
         this.color = 'default';
-        break; 
+        break;
       default:
-        this.color = '';               
+        this.color = '';
     }
   }
 }

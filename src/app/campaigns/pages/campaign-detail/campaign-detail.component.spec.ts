@@ -19,7 +19,7 @@ describe('CampaignDetailComponent', () => {
   const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   let activatedRoute;
 
-  const testCampaign = new Campaign({_id:1, name:'campaign 1', goal:'test goal 1', totalBudget:100, status:'Delivering', platforms:{ platform_1:{}, platform_2:{} } });
+  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: {} } });
 
   const testCampaignService = {
     findCampaignById(id) {
@@ -27,17 +27,17 @@ describe('CampaignDetailComponent', () => {
       return data$;
     }
   };
-  
+
   beforeEach(async(() => {
     activatedRoute = new ActivatedRouteStub();
     TestBed.configureTestingModule({
       declarations: [ CampaignDetailComponent ],
-      imports: [ CommonModule, MatToolbarModule, MatSidenavModule, MatListModule, 
+      imports: [ CommonModule, MatToolbarModule, MatSidenavModule, MatListModule,
         MatIconModule, RouterTestingModule.withRoutes([]), HttpClientTestingModule, NoopAnimationsModule ],
-      providers:[
-        {provide:Router, useValue:routerSpy},
-        {provide:ActivatedRoute, useValue:activatedRoute},
-        {provide:CampaignService, useValue:testCampaignService}
+      providers: [
+        {provide: Router, useValue: routerSpy},
+        {provide: ActivatedRoute, useValue: activatedRoute},
+        {provide: CampaignService, useValue: testCampaignService}
       ]
     })
     .compileComponents();
@@ -45,7 +45,7 @@ describe('CampaignDetailComponent', () => {
 
   beforeEach(async(() => {
     fixture = TestBed.createComponent(CampaignDetailComponent);
-    component = fixture.componentInstance;  
+    component = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
@@ -54,22 +54,22 @@ describe('CampaignDetailComponent', () => {
   });
 
   it('should get campaign ID from route params, and retrieve the campaign from CampaignService', () => {
-    activatedRoute.setParamMap({id:1});
+    activatedRoute.setParamMap({id: 1});
     component.campaign$.subscribe(
       campaign => {
         expect(campaign).toEqual(testCampaign, 'expected campaign');
-       } , 
+       } ,
       fail
     );
   });
-   
+
   it('should redirect to 404 if campaign id is not valid', () => {
-    activatedRoute.setParamMap({id:3});
+    activatedRoute.setParamMap({id: 3});
     fixture.detectChanges();
     const spy = routerSpy.navigate as jasmine.Spy;
-    const navArgs = spy.calls.first().args[0];  
+    const navArgs = spy.calls.first().args[0];
     expect(navArgs).toEqual(['/404']);
-  }); 
-   
+  });
+
 
 });

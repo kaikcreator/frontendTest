@@ -9,13 +9,13 @@ import { Campaign } from '../../models/campaign';
 })
 export class CampaignsListComponent implements OnInit {
 
-  public campaigns:Campaign[];
-  constructor(private campaignsService:CampaignService) { }
+  public campaigns: Campaign[];
+  constructor(private campaignsService: CampaignService) { }
 
   ngOnInit() {
-    this.campaignsService.getCampaigns().subscribe(items =>{
+    this.campaignsService.getCampaigns().subscribe(items => {
       this.campaigns = items;
-    })
+    });
   }
 
 }
