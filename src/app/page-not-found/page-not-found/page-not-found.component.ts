@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 /**
  * Page Not Found component
- * 
+ *
  * A 404 page to render when navigating to an invalid route
  */
 @Component({

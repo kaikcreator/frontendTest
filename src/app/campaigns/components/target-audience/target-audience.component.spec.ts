@@ -64,7 +64,7 @@ describe('TargetAudienceComponent', () => {
     const content = componentDe.nativeElement.querySelector('mat-card-content');
     expect(content.children.length).toEqual(6);
 
-    //check app-labeled-chips content
+    // check app-labeled-chips content
     const labeledChips = fixture.debugElement.queryAll(By.directive(LabeledChipsComponent));
     expect(labeledChips.length).toEqual(5);
     expect(labeledChips[0].componentInstance.list).toEqual(testTargetAudience.languages);
@@ -73,7 +73,7 @@ describe('TargetAudienceComponent', () => {
     expect(labeledChips[3].componentInstance.list).toEqual(testTargetAudience.interests);
     expect(labeledChips[4].componentInstance.list).toEqual(testTargetAudience.keywords);
 
-    //check audience age range
+    // check audience age range
     const audienceRange = componentDe.nativeElement.querySelector('.target-audience-range');
     expect(audienceRange.textContent).toContain('Age range: 0 - 100');
   });

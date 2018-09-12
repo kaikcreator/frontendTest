@@ -1,6 +1,6 @@
 /**
  * Target Audiance Model
- * 
+ *
  * Class representing a target audiance object
  */
 export class TargetAudiance {

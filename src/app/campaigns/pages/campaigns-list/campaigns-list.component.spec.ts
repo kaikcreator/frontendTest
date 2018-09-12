@@ -42,7 +42,7 @@ describe('CampaignsListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CampaignsListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges(); //OnIinit
+    fixture.detectChanges(); // OnIinit
   });
 
   it('should create', () => {
@@ -91,24 +91,24 @@ describe('CampaignsListComponent', () => {
     const campaignCardsDe = fixture.debugElement.queryAll(By.directive(MatCard));
 
     campaignCardsDe.forEach((campaignDe, i) => {
-      //check title
+      // check title
       const campaignTitle = campaignDe.nativeElement.querySelector('.campaign-card-title');
       expect(campaignTitle.textContent).toContain(testCampaigns[i].name);
 
-      //check status
+      // check status
       const statusComponent = campaignDe.query(By.directive(StatusComponent)).componentInstance;
       expect(statusComponent.value).toEqual(testCampaigns[i].status);
 
-      //check goal
+      // check goal
       const campaignGoal = campaignDe.nativeElement.querySelector('.campaign-card-goal');
       expect(campaignGoal.textContent).toContain(testCampaigns[i].goal);
 
-      //check platforms
+      // check platforms
       const platformChipsComponent = campaignDe.query(By.css('.campaign-card-platforms')).componentInstance;
       const platformKeys =  Array.from(testCampaigns[i].platforms.keys());
       expect(platformChipsComponent.list).toEqual(platformKeys);
 
-      //check budget
+      // check budget
       const campaignBudget = campaignDe.nativeElement.querySelector('.campaign-card-footer');
       expect(campaignBudget.textContent).toContain(testCampaigns[i].totalBudget);
 

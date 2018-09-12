@@ -6,9 +6,9 @@ import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.comp
 
 /**
  * Campaigns Detail Overview Component
- * 
+ *
  * This component displays the general information of a specific campaign.
- * It is expected to be used inside a CampaignDetailComponent, so it will retrieve 
+ * It is expected to be used inside a CampaignDetailComponent, so it will retrieve
  * the specific campaign details from it's parent component.
  */
 @Component({

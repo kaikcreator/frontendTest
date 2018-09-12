@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatGridListModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatChipsModule,
+  MatDividerModule, MatGridListModule, MatSidenavModule, MatListModule,
+  MatProgressBarModule, MatIconModule } from '@angular/material';
 
 import { CampaignsListComponent } from './pages/campaigns-list/campaigns-list.component';
 import { CampaignDetailComponent } from './pages/campaign-detail/campaign-detail.component';
@@ -19,8 +21,8 @@ import { KeysArrayPipe } from './pipes/keys-array.pipe';
 
 /**
  * Campaigns Module
- * 
- * This module includes the whole campaigns feature 
+ *
+ * This module includes the whole campaigns feature
  * (list and detail views, and required dependencies)
  */
 @NgModule({
@@ -40,6 +42,17 @@ import { KeysArrayPipe } from './pipes/keys-array.pipe';
     MatIconModule
   ],
   providers: [KeysArrayPipe],
-  declarations: [CampaignsListComponent, CampaignDetailComponent, CampaignDetailOverviewComponent, CampaignDetailPlatformComponent, TargetAudienceComponent, PlatformOverviewComponent, StatusComponent, CreativesComponent, InsightsComponent, LabeledChipsComponent, KeysArrayPipe]
+  declarations: [
+    CampaignsListComponent,
+    CampaignDetailComponent,
+    CampaignDetailOverviewComponent,
+    CampaignDetailPlatformComponent,
+    TargetAudienceComponent,
+    PlatformOverviewComponent,
+    StatusComponent,
+    CreativesComponent,
+    InsightsComponent,
+    LabeledChipsComponent,
+    KeysArrayPipe]
 })
 export class CampaignsModule { }

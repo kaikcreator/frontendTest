@@ -7,8 +7,8 @@ import { Campaign } from '../models/campaign';
 
 /**
  * Campaign Service
- * 
- * This service manages the connections with the server to retrieve 
+ *
+ * This service manages the connections with the server to retrieve
  * an individual campaign, or a list of campaigns.
  * It also stores the campaigns state and exposes a method to search
  * through that object.

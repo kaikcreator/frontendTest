@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * KeysArray pipe
- * 
+ *
  * This pipe transforms a map of values into an array with their keys
  */
 @Pipe({

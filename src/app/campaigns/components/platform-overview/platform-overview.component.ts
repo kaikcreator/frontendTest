@@ -3,9 +3,9 @@ import { Platform } from '../../models/platform';
 
 /**
  * LabeledChips component
- * 
+ *
  * This component displays a card with the general platform information received as input
- * 
+ *
  */
 @Component({
   selector: 'app-platform-overview',

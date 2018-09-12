@@ -15,7 +15,17 @@ describe('CampaignDetailOverviewComponent', () => {
   let component: CampaignDetailOverviewComponent;
   let fixture: ComponentFixture<CampaignDetailOverviewComponent>;
 
-  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: {} } });
+  const testCampaign = new Campaign({
+    _id: 1,
+    name: 'campaign 1',
+    goal: 'test goal 1',
+    totalBudget: 100,
+    status: 'Delivering',
+    platforms: {
+      platform_1: {},
+      platform_2: {}
+    }
+  });
 
   const parentComponentStub = {
     get campaign$() {
@@ -71,19 +81,19 @@ describe('CampaignDetailOverviewComponent', () => {
     fixture.detectChanges();
     const campaignCardDe = fixture.debugElement.query(By.directive(MatCard));
 
-    //check budget
+    // check budget
     const campaignBudget = campaignCardDe.nativeElement.querySelector('.campaign-card-title');
     expect(campaignBudget.textContent).toContain(testCampaign.totalBudget);
 
-    //check status
+    // check status
     const statusComponent = campaignCardDe.query(By.directive(StatusComponent)).componentInstance;
     expect(statusComponent.value).toEqual(testCampaign.status);
 
-    //check goal
+    // check goal
     const campaignGoal = campaignCardDe.nativeElement.querySelector('.campaign-card-goal');
     expect(campaignGoal.textContent).toContain(testCampaign.goal);
 
-    //check platforms
+    // check platforms
     const platformChipsComponent = campaignCardDe.query(By.directive(LabeledChipsComponent)).componentInstance;
     const platformKeys =  Array.from(testCampaign.platforms.keys());
     expect(platformChipsComponent.list).toEqual(platformKeys);

@@ -5,7 +5,7 @@ import { Creatives } from '../../models/creatives';
 
 /**
  * Creatives component
- * 
+ *
  * This component displays a card with the creatives information received as input
  */
 @Component({

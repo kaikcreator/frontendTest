@@ -3,9 +3,9 @@ import { TargetAudiance } from '../../models/target-audience';
 
 /**
  * TargetAudience component
- * 
+ *
  * This component displays a card with the target audience information received as input
- * 
+ *
  */
 @Component({
   selector: 'app-target-audience',

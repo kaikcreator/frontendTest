@@ -4,7 +4,7 @@ import { TargetAudiance } from './target-audience';
 
 /**
  * Platform Model
- * 
+ *
  * Class representing a platform object
  */
 export class Platform {

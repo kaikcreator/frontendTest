@@ -19,11 +19,21 @@ describe('CampaignDetailComponent', () => {
   const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   let activatedRoute;
 
-  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: {} } });
+  const testCampaign = new Campaign({
+    _id: 1,
+    name: 'campaign 1',
+    goal: 'test goal 1',
+    totalBudget: 100,
+    status: 'Delivering',
+    platforms: {
+      platform_1: {},
+      platform_2: {}
+    }
+  });
 
   const testCampaignService = {
     findCampaignById(id) {
-      const data$ = cold('-x|', { x: id == 1 ? testCampaign : null });
+      const data$ = cold('-x|', { x: id === 1 ? testCampaign : null });
       return data$;
     }
   };

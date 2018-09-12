@@ -2,7 +2,7 @@ import { Platform } from './platform';
 
 /**
  * Campaign Model
- * 
+ *
  * Class representing a campaign object
  */
 export class Campaign {

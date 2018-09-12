@@ -1,6 +1,6 @@
 /**
  * Insights Model
- * 
+ *
  * Class representing an insights object
  */
 export class Insights {

@@ -34,7 +34,17 @@ describe('CampaignDetailPlatformComponent', () => {
     creatives: new Creatives({}),
     insights: new Insights({})
   });
-  const testCampaign = new Campaign({_id: 1, name: 'campaign 1', goal: 'test goal 1', totalBudget: 100, status: 'Delivering', platforms: { platform_1: {}, platform_2: testPlatform } });
+  const testCampaign = new Campaign({
+    _id: 1,
+    name: 'campaign 1',
+    goal: 'test goal 1',
+    totalBudget: 100,
+    status: 'Delivering',
+    platforms: {
+      platform_1: {},
+      platform_2: testPlatform
+    }
+  });
 
   const parentComponentStub = {
     get campaign$() {
@@ -87,19 +97,19 @@ describe('CampaignDetailPlatformComponent', () => {
     getTestScheduler().flush(); // flush the observables
     fixture.detectChanges();
 
-    //check platform overview component
+    // check platform overview component
     const platformOverviewComponent = fixture.debugElement.query(By.directive(PlatformOverviewComponent)).componentInstance;
     expect(platformOverviewComponent.platform).toEqual(testPlatform);
 
-    //check target audience component
+    // check target audience component
     const targetAudienceComponent = fixture.debugElement.query(By.directive(TargetAudienceComponent)).componentInstance;
     expect(targetAudienceComponent.targetAudience).toEqual(testPlatform.targetAudiance);
 
-    //check creatives component
+    // check creatives component
     const creativesComponent = fixture.debugElement.query(By.directive(CreativesComponent)).componentInstance;
     expect(creativesComponent.creatives).toEqual(testPlatform.creatives);
 
-    //check insights component
+    // check insights component
     const insightsComponent = fixture.debugElement.query(By.directive(InsightsComponent)).componentInstance;
     expect(insightsComponent.insights).toEqual(testPlatform.insights);
   });

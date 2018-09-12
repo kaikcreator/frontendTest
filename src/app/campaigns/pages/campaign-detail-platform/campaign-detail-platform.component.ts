@@ -6,10 +6,10 @@ import { Subscription } from 'rxjs';
 
 /**
  * Campaigns Detail Platform Component
- * 
+ *
  * This component displays the details of a specific platform, of a user campaign.
  * It expects to retrieve the platform name from the url.
- * It is expected to be used inside a CampaignDetailComponent, so it will retrieve 
+ * It is expected to be used inside a CampaignDetailComponent, so it will retrieve
  * the specific campaign details from it's parent component.
  */
 @Component({
@@ -32,7 +32,7 @@ export class CampaignDetailPlatformComponent implements OnInit, OnDestroy {
         this.platform = campaign.platforms.get(name);
         if (!this.platform) {
           this.router.navigate(['/404']);
-        }        
+        }
       });
     });
   }

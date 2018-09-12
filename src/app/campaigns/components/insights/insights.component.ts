@@ -3,7 +3,7 @@ import { Insights } from '../../models/insights';
 
 /**
  * Insights component
- * 
+ *
  * This component displays a card with the insights information received as input
  */
 @Component({

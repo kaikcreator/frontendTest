@@ -44,28 +44,28 @@ describe('StatusComponent', () => {
   });
 
   it('should update color based in value input', () => {
-    //status Delivering
+    // status Delivering
     let status = 'Delivering';
     let color = 'primary';
     testHostComponent.testValue = status;
     fixture.detectChanges();
     expect(component.color).toBe(color);
 
-    //status Ended
+    // status Ended
     status = 'Ended';
     color = 'warn';
     testHostComponent.testValue = status;
     fixture.detectChanges();
     expect(component.color).toBe(color);
 
-    //status Scheduled
+    // status Scheduled
     status = 'Scheduled';
     color = 'default';
     testHostComponent.testValue = status;
     fixture.detectChanges();
     expect(component.color).toBe(color);
 
-    //unexpected status
+    // unexpected status
     status = 'Unexpected';
     color = '';
     testHostComponent.testValue = status;
