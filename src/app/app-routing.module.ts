@@ -38,6 +38,10 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * App Routing Module
+ * This module contains all the routes of the application
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

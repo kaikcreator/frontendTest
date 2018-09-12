@@ -1,3 +1,8 @@
+/**
+ * Creatives Model
+ * 
+ * Class representing a creatives object
+ */
 export class Creatives {
     header: string;
     header_1: string;

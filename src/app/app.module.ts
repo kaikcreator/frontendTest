@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CampaignsModule } from './campaigns/campaigns.module';
 
+/**
+ * App Module
+ * It is the root module of the application
+ */
 @NgModule({
   declarations: [
     AppComponent

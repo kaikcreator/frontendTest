@@ -1,5 +1,15 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
+/**
+ * Status component
+ * 
+ * This component displays a colored badge with the received status.
+ * The color will change depending on the status value.
+ * 
+ * @example
+ * <app-status value="Delivering">
+ * </app-status>
+ */
 @Component({
   selector: 'app-status',
   template: `

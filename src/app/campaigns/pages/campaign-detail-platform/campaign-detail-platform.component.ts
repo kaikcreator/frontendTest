@@ -4,6 +4,14 @@ import { CampaignDetailComponent } from '../campaign-detail/campaign-detail.comp
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+/**
+ * Campaigns Detail Platform Component
+ * 
+ * This component displays the details of a specific platform, of a user campaign.
+ * It expects to retrieve the platform name from the url.
+ * It is expected to be used inside a CampaignDetailComponent, so it will retrieve 
+ * the specific campaign details from it's parent component.
+ */
 @Component({
   selector: 'app-campaign-detail-platform',
   templateUrl: './campaign-detail-platform.component.html',

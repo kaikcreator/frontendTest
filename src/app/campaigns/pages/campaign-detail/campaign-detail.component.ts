@@ -8,6 +8,16 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
+/**
+ * Campaigns Detail Component
+ * 
+ * This component displays a side menu to access the overview information
+ * of the campaign, as well as the details of each platform available in the campaign.
+ * The overview option is selected by default.
+ * 
+ * It expects the campaign id in the url, so it can retrieves the campaign by using the 
+ * CampaignService.
+ */
 @Component({
   selector: 'app-campaign-detail',
   templateUrl: './campaign-detail.component.html',

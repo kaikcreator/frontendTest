@@ -17,7 +17,12 @@ import { LabeledChipsComponent } from './components/labeled-chips/labeled-chips.
 import { KeysArrayPipe } from './pipes/keys-array.pipe';
 
 
-
+/**
+ * Campaigns Module
+ * 
+ * This module includes the whole campaigns feature 
+ * (list and detail views, and required dependencies)
+ */
 @NgModule({
   imports: [
     CommonModule,

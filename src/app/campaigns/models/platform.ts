@@ -2,6 +2,11 @@ import { Creatives } from './creatives';
 import { Insights } from './insights';
 import { TargetAudiance } from './target-audience';
 
+/**
+ * Platform Model
+ * 
+ * Class representing a platform object
+ */
 export class Platform {
     status: string;
     totalBudget: Number;

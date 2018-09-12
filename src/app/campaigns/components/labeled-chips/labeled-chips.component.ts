@@ -1,5 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+/**
+ * LabeledChips component
+ * 
+ * This component displays a list of items in chips format, and allows to associate a label 
+ * to them, using transclusion.
+ * 
+ * @example
+ * <app-labeled-chips list="['item 1', 'item 2', 'item 3']">
+ *              <span>My items</span>
+ * </app-labeled-chips>
+ */
 @Component({
   selector: 'app-labeled-chips',
   template: `

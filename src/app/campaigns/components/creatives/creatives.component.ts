@@ -3,6 +3,11 @@ import { environment } from '../../../../environments/environment';
 
 import { Creatives } from '../../models/creatives';
 
+/**
+ * Creatives component
+ * 
+ * This component displays a card with the creatives information received as input
+ */
 @Component({
   selector: 'app-creatives',
   templateUrl: './creatives.component.html',

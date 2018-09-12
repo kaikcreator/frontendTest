@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../../services/campaign.service';
 import { Campaign } from '../../models/campaign';
 
+/**
+ * Campaigns List Component
+ * 
+ * This component displays a list with all the available campaigns of the user
+ */
 @Component({
   selector: 'app-campaigns-list',
   templateUrl: './campaigns-list.component.html',
