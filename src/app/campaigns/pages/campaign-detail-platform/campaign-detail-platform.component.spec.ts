@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CampaignDetailPlatformComponent } from './campaign-detail-platform.component';
 import { PlatformOverviewComponent } from '../../components/platform-overview/platform-overview.component';
@@ -20,6 +20,8 @@ import { TargetAudiance } from '../../models/target-audience';
 import { Creatives } from '../../models/creatives';
 import { Insights } from '../../models/insights';
 import { By } from '@angular/platform-browser';
+import { PageNotFoundComponent } from '../../../page-not-found/page-not-found/page-not-found.component';
+import { PageNotFoundModule } from '../../../page-not-found/page-not-found.module';
 
 
 describe('CampaignDetailPlatformComponent', () => {
@@ -46,7 +48,9 @@ describe('CampaignDetailPlatformComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CampaignDetailPlatformComponent, PlatformOverviewComponent,
         TargetAudienceComponent, CreativesComponent, InsightsComponent, StatusComponent, LabeledChipsComponent ],
-      imports: [MatCardModule, HttpClientTestingModule, MatChipsModule, RouterTestingModule],
+      imports: [MatCardModule, HttpClientTestingModule, MatChipsModule, PageNotFoundModule, RouterTestingModule.withRoutes([
+        { path: '404', component: PageNotFoundComponent}
+    ])],
       providers: [
         {provide: CampaignDetailComponent, useValue: parentComponentStub},
         {provide: ActivatedRoute, useValue: activatedRoute}, ]
